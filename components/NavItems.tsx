@@ -1,6 +1,13 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 
 const navItems = [
   {
@@ -15,10 +22,10 @@ const navItems = [
     label: "my journey",
     href: "/my-journey",
   },
-  {
-    label: "sign in",
-    href: "/sign-in",
-  },
+  // {
+  //   label: "sign in",
+  //   href: "/sign-in",
+  // },
 ];
 const NavItems = () => {
   const pathName = usePathname();
@@ -34,6 +41,15 @@ const NavItems = () => {
           {label}
         </Link>
       ))}
+      <SignedOut>
+        <SignInButton>
+          <button className="btn-signin">Sign In</button>
+        </SignInButton>
+        <SignUpButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
     </nav>
   );
 };
