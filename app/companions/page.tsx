@@ -1,7 +1,8 @@
+import CompanionLibrary from "@/components/CompanionLibrary";
 import React from "react";
 
 const Companions = () => {
-  return <div>Companions</div>;
+  return <CompanionLibrary />;
 };
 
 export default Companions;
