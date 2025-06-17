@@ -6,7 +6,7 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 
 const CompanionSession = async ({ params }: { params: { id: string } }) => {
-  const { id } = await params;
+  const { id } = params;
 
   const companions = await getCompanionById(id!);
   const user = await currentUser();
