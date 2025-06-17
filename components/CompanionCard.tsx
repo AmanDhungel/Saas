@@ -4,6 +4,7 @@ import noBgBookMark from "../public/icons/bookmark.svg";
 import clock from "../public/icons/clock.svg";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 // import filledBookMark from "../public/icons/bookmark-filled.svg";
 
 interface CompanionProps {
@@ -16,6 +17,7 @@ interface CompanionProps {
 }
 
 const CompanionCard = ({
+  id,
   name,
   topic,
   subject,
@@ -46,7 +48,11 @@ const CompanionCard = ({
           : `${Math.floor(duration / 60)} hr ${duration % 60} min`}{" "}
         duration
       </h3>
-      <Button className="items-center text-center w-full">Launch Lesson</Button>
+      <Link href={`/companions/${id}`}>
+        <Button className="items-center text-center w-full">
+          Launch Lesson
+        </Button>
+      </Link>
     </article>
   );
 };
