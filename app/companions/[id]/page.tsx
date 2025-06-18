@@ -5,8 +5,12 @@ import { currentUser } from "@clerk/nextjs/server";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
-const CompanionSession = async ({ params }: { params: { id: string } }) => {
-  const { id } = params;
+interface CompanionSessionPageProps {
+  params: Promise<{ id: string }>;
+}
+
+const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
+  const { id } = await params;
 
   const companions = await getCompanionById(id!);
   const user = await currentUser();
